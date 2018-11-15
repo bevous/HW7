@@ -3,7 +3,9 @@
 
 #pragma once
 #include <string>
+#include <sstream>
 #include <vector>
+#include <math.h>
 namespace Cities {
 	using namespace std; 
 
@@ -12,7 +14,7 @@ namespace Cities {
 	class city
 	{
 	private:
-		vector<int> cordinates;
+		vector<double> cordinates;
 		string name;
 		string country;
 
@@ -26,9 +28,8 @@ namespace Cities {
 		string getCountry();
 		vector<double> getCordinates();
 		//distance
-		double distance(city other);
-		//compare operaters
-
+		double distance(city& other);
+		
 	};
 }
 #endif
