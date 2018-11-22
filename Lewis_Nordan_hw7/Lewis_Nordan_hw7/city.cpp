@@ -2,6 +2,19 @@
 #include "city.h"
 using namespace std;
 
+int city::compare_to(city &other)
+{
+	if (this->getdistance() < other.getdistance()) {
+		return -1;
+	}
+	else if (this->getdistance() > other.getdistance()) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
 city::city()
 {
 	vector<double> cordinates;
@@ -21,9 +34,9 @@ void  city::setCity(string location)
 	getline(s, name, ',');
 	getline(s, country, ',');
 	getline(s, temp, ',');
-	cordinates[0] = stod(temp);
+	cordinates.push_back(stod(temp));
 	getline(s, temp, ',');
-	cordinates[1] = stod(temp);
+	cordinates.push_back(stod(temp));
 }
 
 string  city::getName()
@@ -41,7 +54,12 @@ vector<double>  city::getCordinates()
 	return cordinates;
 }
 
-double  city::distance(city& other)
+double city::getdistance()
+{
+	return distance;
+}
+
+void  city::distancecalc(city& other)
 {
 	const double R = 3959.0;
 	double dLat = this->cordinates[0] - other.getCordinates()[0];
@@ -50,5 +68,41 @@ double  city::distance(city& other)
 	double c = 2 * a * tan(2 * (sqrt(a), sqrt(1 - a)));
 	double d = R * c;
 
-	return d;
+	distance = d;
+}
+
+bool city::operator<(city &rh)
+{
+	return compare_to(rh)<0;
+}
+
+bool city::operator>(city &rh)
+{
+	return compare_to(rh)>0;
+}
+
+bool city::operator<=(city &rh)
+{
+	return compare_to(rh)<=0;
+}
+
+bool city::operator>=(city &rh)
+{
+	return compare_to(rh)>=0;
+}
+
+bool city::operator==(city &rh)
+{
+	return compare_to(rh)==0;
+}
+
+bool city::operator!=(city &rh)
+{
+	return compare_to(rh)!=0;
+}
+
+ostream& operator<<(ostream& out, city &City)
+{
+	out << City.getName() << " " << City.getCountry();
+	return out;
 }
