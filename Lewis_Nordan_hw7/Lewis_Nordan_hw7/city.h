@@ -14,27 +14,27 @@ private:
 	string name;
 	string country;
 	double distance;
-	int compare_to(city &other );
+	int compare_to(const city&);
 public:
 	city();
 	~city();
 	//setter
 	void setCity(string location);
 	//getters
-	string getName();
-	string getCountry();
-	vector<double> getCordinates();
-	double getdistance();
+	string getName() const;
+	string getCountry() const;
+	vector<double> getCordinates() const;
+	double getdistance() const;
 	//distance
 	void distancecalc(city& other);
 
 	//compare operators
-	bool operator< (city &rh);
-	bool operator> (city &rh);
-	bool operator<= (city &rh);
-	bool operator>= (city &rh);
-	bool operator== (city &rh);
-	bool operator!= (city &rh);
+	bool operator< (const city&);
+	bool operator> (const city&);
+	bool operator<= (const city&);
+	bool operator>= (const city&);
+	bool operator== (const city&);
+	bool operator!= (const city&);
 
 
 	//output operator overload

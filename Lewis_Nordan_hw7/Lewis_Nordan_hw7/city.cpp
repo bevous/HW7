@@ -2,7 +2,7 @@
 #include "city.h"
 using namespace std;
 
-int city::compare_to(city &other)
+int city::compare_to(const city &other)
 {
 	if (this->getdistance() < other.getdistance()) {
 		return -1;
@@ -39,22 +39,22 @@ void  city::setCity(string location)
 	cordinates.push_back(stod(temp));
 }
 
-string  city::getName()
+string  city::getName() const
 {
 	return name;
 }
 
-string  city::getCountry()
+string  city::getCountry() const
 {
 	return country;
 }
 
-vector<double>  city::getCordinates()
+vector<double>  city::getCordinates() const
 {
 	return cordinates;
 }
 
-double city::getdistance()
+double city::getdistance() const
 {
 	return distance;
 }
@@ -71,38 +71,38 @@ void  city::distancecalc(city& other)
 	distance = d;
 }
 
-bool city::operator<(city &rh)
+bool city::operator<(const city &rh)
 {
-	return compare_to(rh)<0;
+	return this->compare_to(rh)<0;
 }
 
-bool city::operator>(city &rh)
+bool city::operator>(const city &rh)
 {
-	return compare_to(rh)>0;
+	return this->compare_to(rh)>0;
 }
 
-bool city::operator<=(city &rh)
+bool city::operator<=(const city &rh)
 {
-	return compare_to(rh)<=0;
+	return this->compare_to(rh)<=0;
 }
 
-bool city::operator>=(city &rh)
+bool city::operator>=(const city &rh)
 {
-	return compare_to(rh)>=0;
+	return this->compare_to(rh)>=0;
 }
 
-bool city::operator==(city &rh)
+bool city::operator==(const city &rh)
 {
-	return compare_to(rh)==0;
+	return this->compare_to(rh)==0;
 }
 
-bool city::operator!=(city &rh)
+bool city::operator!=(const city &rh)
 {
-	return compare_to(rh)!=0;
+	return this->compare_to(rh)!=0;
 }
 
 ostream& operator<<(ostream& out, city &City)
 {
-	out << City.getName() << " " << City.getCountry();
+	out << City.getName() /*<< " " << City.getCountry()*/;
 	return out;
 }

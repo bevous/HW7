@@ -1,6 +1,5 @@
 ﻿  Lewis_Nordan_hw7.cpp
 c:\users\lewis\documents\github\hw7\lewis_nordan_hw7\lewis_nordan_hw7\lewis_nordan_hw7.cpp(32): warning C4018: '<': signed/unsigned mismatch
-c:\users\lewis\documents\github\hw7\lewis_nordan_hw7\lewis_nordan_hw7\lewis_nordan_hw7.cpp(39): warning C4018: '>': signed/unsigned mismatch
-  city.cpp
-  Generating Code...
+c:\users\lewis\documents\github\hw7\lewis_nordan_hw7\lewis_nordan_hw7\lewis_nordan_hw7.cpp(49): warning C4018: '<': signed/unsigned mismatch
+c:\users\lewis\documents\github\hw7\lewis_nordan_hw7\lewis_nordan_hw7\lewis_nordan_hw7.cpp(56): warning C4018: '>': signed/unsigned mismatch
   Lewis_Nordan_hw7.vcxproj -> C:\Users\Lewis\Documents\GitHub\HW7\Lewis_Nordan_hw7\Debug\Lewis_Nordan_hw7.exe
