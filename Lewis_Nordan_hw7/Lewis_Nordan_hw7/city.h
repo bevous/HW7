@@ -13,7 +13,7 @@ private:
 	vector<double> cordinates;
 	string name;
 	string country;
-	double distance;
+	double distance=0;
 	int compare_to(const city&);
 public:
 	city();

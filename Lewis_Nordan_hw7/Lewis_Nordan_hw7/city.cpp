@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "city.h"
+#include<iostream>
 using namespace std;
 
 int city::compare_to(const city &other)
@@ -65,10 +66,12 @@ void  city::distancecalc(city& other)
 	double dLat = this->cordinates[0] - other.getCordinates()[0];
 	double Dlong = this->cordinates[1] - other.getCordinates()[1];
 	double a = ( pow(sin(dLat / 2),2.0) + cos(this->cordinates[0]) * cos(other.getCordinates()[0]) * pow(sin(Dlong / 2),2));
-	double c = 2 * a * tan(2 * (sqrt(a), sqrt(1 - a)));
+	double c = 2 * asin(sqrt(a));
 	double d = R * c;
-
-	distance = d;
+	if (d < 0) {
+		cout << "something here" << endl;
+	}
+	distance = abs(d);
 }
 
 bool city::operator<(const city &rh)
@@ -103,6 +106,6 @@ bool city::operator!=(const city &rh)
 
 ostream& operator<<(ostream& out, city &City)
 {
-	out << City.getName() /*<< " " << City.getCountry()*/;
+	out << City.getName() << " " << City.getCountry()<<" "<<City.getdistance();
 	return out;
 }

@@ -1,5 +1,7 @@
-dlon = lon2 - lon1 
-dlat = lat2 - lat1 
-a = ( sin(dlat/2) )^2 + cos(lat1) * cos(lat2) * (sin(dlon/2))^2 
-c = 2 * a * tan2( sqrt(a), sqrt(1-a) ) 
-d = R * c (where R is the radius of the Earth)
+dlon = lon2 - lon1
+dlat = lat2 - lat1
+a= pow(sin(dLat/2)) + cos(other.getCordinates()[0]) * cos(this->getCordinates()[0]) * pow(sin(dLong/2))
+c = 2*asin(sqrt(a))
+
+
+d = R * c
